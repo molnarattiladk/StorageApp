@@ -30,6 +30,7 @@ namespace StorageApp.API
             services.AddDbContext<DataContext>(opts => opts.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,14 +40,17 @@ namespace StorageApp.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
+           // else
+           // {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 //app.UseHsts();
-            }
+           // }
 
             //app.UseHttpsRedirection();
+            app.UseCors(x=>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
             app.UseMvc();
+
         }
     }
 }
