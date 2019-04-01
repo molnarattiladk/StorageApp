@@ -1,0 +1,32 @@
+<nav *ngIf="loggedIn()"  class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Storage App</a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Cikkek</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dolgozók</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Egyéb</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+
+    <!--drobdown menu elemet alakítottuk át ilyenné-->
+    <!--
+    <div *ngIf="loggedInMode" class="dropdown">
+      <a class="dropdown-toggle text-light">
+        Welcome User
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+      </div>
+    </div>-->
+</nav>
