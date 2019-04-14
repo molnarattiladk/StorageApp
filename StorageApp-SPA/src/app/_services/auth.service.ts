@@ -9,6 +9,7 @@ export class AuthService {
 
 
 baseUrl = 'http://localhost:5000/api/auth/';
+// jwtHelper = new JwtHelperService();
 constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -22,5 +23,12 @@ constructor(private http: HttpClient) { }
     );
   }
 
-  // regisztráció kell egyáltalán?
+
+ // loggedIn() {
+ //   const token = localStorage.getItem('token');
+ //   return false; // !this.jwtHelper.isTokenExpired(token); // boolean
+
 }
+
+  // regisztráció kell egyáltalán?
+

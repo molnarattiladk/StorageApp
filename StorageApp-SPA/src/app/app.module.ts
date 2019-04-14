@@ -11,13 +11,17 @@ import { AuthService } from './_services/auth.service';
 import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
+import { ItemsComponent } from './items/items.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       LoginComponent,
       HomeComponent,
-      NavComponent
+      NavComponent,
+      ItemsComponent,
+      EmployeesComponent
    ],
    imports: [
       BrowserModule,
