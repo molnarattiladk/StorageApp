@@ -38,6 +38,7 @@ namespace StorageApp.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
             services.AddTransient<Seed>();
+            services.AddScoped<IItemRepository, ItemRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>{
                 opt.TokenValidationParameters = new TokenValidationParameters
