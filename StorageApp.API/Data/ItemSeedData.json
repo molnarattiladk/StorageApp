@@ -1,0 +1,117 @@
+ [
+    {
+        "Name": "csavarkulcs",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "prémium csavarkulcs",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "bosh csavarkulcs",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "ecset",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "gereblye",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "csavakulcs",
+        "Description": "Lorem ipsum....",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },
+    {
+        "Name": "kalapács",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },{
+        "Name": "szög",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    },{
+        "Name": "csavar",
+        "Description": "Lorem ipsum...",
+        "Count": 1,
+        "GrossPrice": 1500,
+        "NetPrice": 1250,
+        "LastModify": "2015-01-01",
+        "LastModifier":  [
+            { 
+                "UserName": "Gergely"
+            }
+        ]
+    }
+]
