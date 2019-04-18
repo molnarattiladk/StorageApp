@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using StorageApp.API.Data;
+using StorageApp.API.Dtos;
 
 namespace StorageApp.API.Controllers
 {
@@ -12,19 +16,20 @@ namespace StorageApp.API.Controllers
     public class ItemController : ControllerBase
     {
         private readonly IItemRepository _repo;
-        private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
 
-        public ItemController(IItemRepository repo, IConfiguration config)
+        public ItemController(IItemRepository repo, IMapper mapper)
         {
-            this._config = config;
             this._repo = repo;
+            this._mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetItems()
         {
             var items = await _repo.GetItems();
-            return Ok(items);
+            var itemsToReturn = _mapper.Map<IEnumerable<ItemForListDto>>(items);
+            return Ok(itemsToReturn);
         }
 
         [HttpGet("{id}")]
@@ -32,10 +37,10 @@ namespace StorageApp.API.Controllers
         {
             var item = await _repo.GetItem(id);
 
-            //var userToReturn = _mapper.Map<UserForDetailedDto>(user);   //Célt kell megadno, simazárójelben meg a forrást
+            var itemToReturn = _mapper.Map<ItemForDetailedDto>(item);   //Célt kell megadno, simazárójelben meg a forrást
 
 
-            return Ok(item);
+            return Ok(itemToReturn);
         }
 
         

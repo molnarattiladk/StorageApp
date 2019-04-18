@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -39,9 +40,11 @@ namespace StorageApp.API
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
+            services.AddAutoMapper();
             services.AddTransient<Seed>();
-            services.AddScoped<IItemRepository, ItemRepository>();
+            
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IItemRepository, ItemRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>{
                 opt.TokenValidationParameters = new TokenValidationParameters
                 {
