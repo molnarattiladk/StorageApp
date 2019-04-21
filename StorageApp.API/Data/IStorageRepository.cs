@@ -4,7 +4,10 @@ using StorageApp.API.Models;
 
 namespace StorageApp.API.Data
 {
-    public interface IItemRepository
+    ///
+    /// GENERAL INTERFACE REPOSITORY
+    ///
+    public interface IStorageRepository
     {
         void Add<T>(T entity) where T: class;
         void Deleted<T>(T entity) where T: class;

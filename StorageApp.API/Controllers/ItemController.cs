@@ -15,10 +15,10 @@ namespace StorageApp.API.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        private readonly IItemRepository _repo;
+        private readonly IStorageRepository _repo;
         private readonly IMapper _mapper;
 
-        public ItemController(IItemRepository repo, IMapper mapper)
+        public ItemController(IStorageRepository repo, IMapper mapper)
         {
             this._repo = repo;
             this._mapper = mapper;

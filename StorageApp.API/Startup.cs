@@ -44,7 +44,7 @@ namespace StorageApp.API
             services.AddTransient<Seed>();
             
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<IStorageRepository, StorageRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>{
                 opt.TokenValidationParameters = new TokenValidationParameters
                 {
