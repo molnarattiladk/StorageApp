@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../_models/item';
 import { ItemService } from '../_services/item.service';
+import { Item } from '../_models/item';
 
 @Component({
-  selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  selector: 'app-item-list',
+  templateUrl: './item-list.component.html',
+  styleUrls: ['./item-list.component.css']
 })
-export class ItemsComponent implements OnInit {
+export class ItemListComponent implements OnInit {
   items: Item[];
-
 
   constructor(private itemService: ItemService) { }
 
@@ -21,8 +20,7 @@ export class ItemsComponent implements OnInit {
     this.itemService.getItems().subscribe((items: Item[]) => {
       this.items = items;
     }, error => {
-      console.log(error);
+      console.log(error); // jó ez így még nem okés, kelleni fog az alertify
     });
   }
-
 }

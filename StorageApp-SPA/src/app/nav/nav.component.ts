@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   loggedInMode = false;
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -21,8 +22,7 @@ export class NavComponent implements OnInit {
   }
 
   loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token; // ez a van vagynincs
+    return this.authService.loggedIn();
   }
 
 

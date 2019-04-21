@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +10,8 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
 
-baseUrl = 'http://localhost:5000/api/auth/';
-// jwtHelper = new JwtHelperService();
+baseUrl = environment.apiUrl + 'auth/';
+jwtHelper = new JwtHelperService();
 constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -24,11 +26,8 @@ constructor(private http: HttpClient) { }
   }
 
 
- // loggedIn() {
- //   const token = localStorage.getItem('token');
- //   return false; // !this.jwtHelper.isTokenExpired(token); // boolean
-
+  loggedIn() {
+   const token = localStorage.getItem('token');
+   return !this.jwtHelper.isTokenExpired(token); // boolean
+  }
 }
-
-  // regisztráció kell egyáltalán?
-
