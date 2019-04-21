@@ -16,6 +16,7 @@ import { AlertifyService } from './_services/alertify.service';
 import { ItemsComponent } from './items/items.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ItemService } from './_services/item.service';
+import { UserService } from './_services/user.service';
 
 
 
@@ -50,7 +51,8 @@ export function tokenGetter() {
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
-      ItemService
+      ItemService,
+      UserService
    ],
    bootstrap: [
       AppComponent
