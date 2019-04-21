@@ -14,5 +14,8 @@ namespace StorageApp.API.Data
         Task<bool> SaveAll();
         Task<IEnumerable<Item>> GetItems();
         Task<Item> GetItem(int id);
+
+        Task<IEnumerable<User>> GetUsers();
+        Task<User> GetUser(int id);
     }
 }
