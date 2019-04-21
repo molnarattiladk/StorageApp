@@ -1,23 +1,48 @@
 [
     {
      "Username": "Gergely",
-      "Password": "password"
+      "Password": "password",
+      "Contact": "gergely@gergely.hu",
+      "OnHoliday": false,
+      "Role": "EMPLOYE",
+      "Salary": 1200,
+      "Started": "2016-01-01"
     },
     {
      "Username": "András",
-      "Password": "password"
+      "Password": "password",
+      "Contact": "andras@andras.hu",
+      "OnHoliday": false,
+      "Role": "EMPLOYE",
+      "Salary": 1200,
+      "Started": "2016-01-01"
     },
     {
         "Username": "Bence",
-      "Password": "password"
+      "Password": "password",
+      "Contact": "bence@bence.hu",
+      "OnHoliday": false,
+      "Role": "BOSS",
+      "Salary": 3200,
+      "Started": "2016-01-01"
     },
     {
         "Username": "Anita",
-      "Password": "password"
+      "Password": "password",
+      "Contact": "anita@anita.hu",
+      "OnHoliday": true,
+      "Role": "EMPLOYE",
+      "Salary": 1100,
+      "Started": "2016-01-01"
     },
     {
         "Username": "Judit",
-      "Password": "password"
+      "Password": "password",
+      "Contact": "judit@judit.hu",
+      "OnHoliday": false,
+      "Role": "BOSS",
+      "Salary": 2200,
+      "Started": "2016-01-01"
     }
 
 ]
