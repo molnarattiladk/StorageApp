@@ -12,6 +12,7 @@
           <tr *ngFor="let user of users">
             <td>{{user.id}}</td>
             <td>{{user.userName}}</td>
+            <td><button class="btn btn-primary" [routerLink]="['/employees/', user.id]"><i class="fa fa-user"></i></button></td>
           </tr>
         </tbody>
       </table>
