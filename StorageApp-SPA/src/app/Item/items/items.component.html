@@ -10,6 +10,7 @@
             <th>Ár</th>
             <th>Módosítás</th>
             <th>Módosító</th>
+            <th>Részletek</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
             <td>{{item.netPrice}}</td>
             <td>{{item.lastModify}}</td>
             <td>{{item.lastModifier}}</td>
+            <td><button class="btn btn-primary" [routerLink]="['/items/', item.id]"><i class="fa fa-info"></i></button></td>
           </tr>
         </tbody>
       </table>

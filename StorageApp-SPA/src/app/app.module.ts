@@ -13,11 +13,12 @@ import { AuthService } from './_services/auth.service';
 import { NavComponent } from './nav/nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
-import { ItemsComponent } from './items/items.component';
+import { ItemsComponent } from './Item/items/items.component';
 import { EmployeesComponent } from './Employee/employees/employees.component';
 import { ItemService } from './_services/item.service';
 import { UserService } from './_services/user.service';
 import { EmployeeDetailedComponent } from './Employee/employee-detailed/employee-detailed.component';
+import { ItemDetailedComponent } from './Item/item-detailed/item-detailed.component';
 
 
 
@@ -34,7 +35,8 @@ export function tokenGetter() {
       NavComponent,
       ItemsComponent,
       EmployeesComponent,
-      EmployeeDetailedComponent
+      EmployeeDetailedComponent,
+      ItemDetailedComponent
    ],
    imports: [
       BrowserModule,
