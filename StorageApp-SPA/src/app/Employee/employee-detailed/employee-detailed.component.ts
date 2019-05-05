@@ -15,16 +15,18 @@ export class EmployeeDetailedComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
-  }
-
-  loadUser() {
-    // tslint:disable-next-line:no-string-literal
-    this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
-      this.user = user;
-    }, error => {
-      console.log(error);
+    this.route.data.subscribe(data => {
+      this.user = data.user; // ['user']
     });
   }
+
+  // loadUser() {
+  //   // tslint:disable-next-line:no-string-literal
+  //   this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
+  //     this.user = user;
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
 }

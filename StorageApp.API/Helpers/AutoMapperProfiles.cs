@@ -16,6 +16,8 @@ namespace StorageApp.API.Helpers
                 .ForMember(dest => dest.LastModifier, opt =>{
                     opt.MapFrom(src => src.LastModifier.UserName.ToString());
                 });
+
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }

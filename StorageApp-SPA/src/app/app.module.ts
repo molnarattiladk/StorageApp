@@ -19,6 +19,11 @@ import { ItemService } from './_services/item.service';
 import { UserService } from './_services/user.service';
 import { EmployeeDetailedComponent } from './Employee/employee-detailed/employee-detailed.component';
 import { ItemDetailedComponent } from './Item/item-detailed/item-detailed.component';
+import { EmployeeEditComponent } from './Employee/employee-edit/employee-edit.component';
+import { EmployeeDetailResolver } from './_resolver/employee-detail.resolver';
+import { EmployeeListResolver } from './_resolver/employee-list.resolver';
+import { EmployeeEditResolver } from './_resolver/employee-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 
@@ -36,7 +41,8 @@ export function tokenGetter() {
       ItemsComponent,
       EmployeesComponent,
       EmployeeDetailedComponent,
-      ItemDetailedComponent
+      ItemDetailedComponent,
+      EmployeeEditComponent
    ],
    imports: [
       BrowserModule,
@@ -56,7 +62,11 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       ItemService,
-      UserService
+      UserService,
+      EmployeeDetailResolver,
+      EmployeeListResolver,
+      EmployeeEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

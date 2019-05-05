@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+        <h1>Szerkeszt {{user.userName}}</h1>
+    </div>
+   <div class="col-sm-8">
+     <div *ngIf="editForm.dirty" class="alert alert-info">
+       <strong>Information: </strong>You have made changes. Any unsaved changes will be lost
+     </div>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <strong>Role: </strong>
+            <p>{{user.role}}</p>
+          </div>
+          <div>
+            <strong>Salary: </strong>
+            <p>{{user.salaray}}</p>
+          </div>
+          <div>
+            <strong>Tag: </strong>
+            <p>{{user.started}}</p>
+          </div>
+          <div>
+            <strong>Contact: </strong>
+            <p>{{user.created | date: 'mediumDate'}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+        </div>
+      </div>
+    </div>
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+      <h4>Szerepkör</h4>
+      <input type="text" name="role" class="form-control" [(ngModel)]="user.role">
+      <h4>Fizetés: </h4>
+      <input type="number" name="salary" class="form-control" [(ngModel)]="user.salary">
+      <h4>Szabadságon</h4>
+      <input type="checkbox" name="onHoliday" class="form-control" [(ngModel)]="user.onHoliday">
+      <h4>Location Details</h4>
+      <h4>Kapcsolat</h4>
+      <input type="email" name="contact" class="form-control" [(ngModel)]="user.contact">
+</form>
+      </div>
+  </div>
