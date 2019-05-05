@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -41,6 +43,18 @@ namespace StorageApp.API.Controllers
 
 
             return Ok(itemToReturn);
+        }
+
+        [HttpPut("{id}/{itemid}")]
+        public async Task<IActionResult> UpdateItem(int id, int itemid, ItemForUpdateDto itemForUpdateDto)
+        {
+            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            if (await _repo.SaveAll())
+                return NoContent();
+            
+            throw new Exception($"Nem jó az azlábbi {id}");
         }
 
         
