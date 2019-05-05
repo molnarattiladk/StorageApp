@@ -24,6 +24,9 @@ import { EmployeeDetailResolver } from './_resolver/employee-detail.resolver';
 import { EmployeeListResolver } from './_resolver/employee-list.resolver';
 import { EmployeeEditResolver } from './_resolver/employee-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
+import { ItemListResolver } from './_resolver/item-list.resolver';
+import { ItemEditResolver } from './_resolver/item-edit.resolver';
 
 
 
@@ -66,7 +69,10 @@ export function tokenGetter() {
       EmployeeDetailResolver,
       EmployeeListResolver,
       EmployeeEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ItemDetailedResolver,
+      ItemListResolver,
+      ItemEditResolver
    ],
    bootstrap: [
       AppComponent

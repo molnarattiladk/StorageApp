@@ -11,6 +11,8 @@ import { EmployeeDetailResolver } from './_resolver/employee-detail.resolver';
 import { EmployeeListResolver } from './_resolver/employee-list.resolver';
 import { EmployeeEditResolver } from './_resolver/employee-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ItemListResolver } from './_resolver/item-list.resolver';
+import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -19,8 +21,8 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      {path: 'items', component: ItemsComponent},
-      {path: 'items/:id', component: ItemDetailedComponent},
+      {path: 'items', component: ItemsComponent, resolve: {item: ItemListResolver}},
+      {path: 'items/:id', component: ItemDetailedComponent, resolve: {item: ItemDetailedResolver}},
       {path: 'employees', component: EmployeesComponent, resolve: {users: EmployeeListResolver}},
       {path: 'employees/:id', component: EmployeeDetailedComponent, resolve: {user: EmployeeDetailResolver}},
       {path: 'employee/edit/:id', component: EmployeeEditComponent, resolve: {user: EmployeeEditResolver},
