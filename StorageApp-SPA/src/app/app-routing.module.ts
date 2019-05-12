@@ -13,6 +13,7 @@ import { EmployeeEditResolver } from './_resolver/employee-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ItemListResolver } from './_resolver/item-list.resolver';
 import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
+import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
       {path: 'employees', component: EmployeesComponent, resolve: {users: EmployeeListResolver}},
       {path: 'employees/:id', component: EmployeeDetailedComponent, resolve: {user: EmployeeDetailResolver}},
       {path: 'employee/edit/:id', component: EmployeeEditComponent, resolve: {user: EmployeeEditResolver},
-       canDeactivate: [PreventUnsavedChanges]}
+       canDeactivate: [PreventUnsavedChanges]},
+       {path: 'employee/add', component: EmployeeAddComponent}
     ]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full'},

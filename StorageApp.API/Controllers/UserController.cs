@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StorageApp.API.Data;
 using StorageApp.API.Dtos;
+using StorageApp.API.Models;
 
 namespace StorageApp.API.Controllers
 {
@@ -54,6 +55,29 @@ namespace StorageApp.API.Controllers
                 return NoContent();
 
             throw new Exception($"Nem jó ez {id}");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserForAddDto userForAddDto)
+        {
+            userForAddDto.UserName=userForAddDto.UserName.ToLower();
+
+            // létezik e már
+            if (await _repo.UserExists(userForAddDto.UserName))
+            {
+                return BadRequest("Username already exists");
+            }
+        
+
+            var userToCreate = _mapper.Map<User>(userForAddDto);
+            //mapper kell
+
+            _repo.Add(userToCreate);
+            return StatusCode(201);
+
+            // var userToReturn = _mapper.Map<UserForDetailedDto>(createdUser);
+
+            // return CreatedAtRoute("GetUser", new {controller = "Users", id = createdUser.Id}, userToReturn);
         }
     }
 }

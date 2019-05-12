@@ -56,5 +56,12 @@ namespace StorageApp.API.Data
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<bool> UserExists(string username)
+        {
+            if(await _context.Users.AnyAsync(x=>x.UserName==username))
+                return true;
+            return false;
+        }
     }
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
 
@@ -27,6 +27,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
 import { ItemListResolver } from './_resolver/item-list.resolver';
 import { ItemEditResolver } from './_resolver/item-edit.resolver';
+import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
 
 
 
@@ -45,13 +46,15 @@ export function tokenGetter() {
       EmployeesComponent,
       EmployeeDetailedComponent,
       ItemDetailedComponent,
-      EmployeeEditComponent
+      EmployeeEditComponent,
+      EmployeeAddComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       JwtModule.forRoot({
          config: {
             tokenGetter,

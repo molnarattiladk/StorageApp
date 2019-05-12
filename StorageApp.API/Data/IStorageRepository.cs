@@ -17,5 +17,7 @@ namespace StorageApp.API.Data
 
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);
+
+        Task<bool> UserExists(string username);
     }
 }

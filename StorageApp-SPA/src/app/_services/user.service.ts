@@ -24,4 +24,8 @@ updateUser(id: number, userid: number, user: User) {
   return this.http.put(this.baseUrl + 'user/' + id + '/' + userid, user);
 }
 
+adduser(user: User) {
+  return this.http.post(this.baseUrl + 'user', user);
+}
+
 }
