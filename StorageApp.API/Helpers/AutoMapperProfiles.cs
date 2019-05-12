@@ -22,6 +22,8 @@ namespace StorageApp.API.Helpers
             CreateMap<ItemForUpdateDto, Item>();
 
             CreateMap<UserForAddDto, User>();
+
+            CreateMap<ItemForCreateDto, Item>();
         }
     }
 }

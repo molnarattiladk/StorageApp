@@ -51,6 +51,12 @@ namespace StorageApp.API.Data
             return items;
         }
 
+        public async Task<bool> ItemExists(string itemname)
+        {
+            if ( await _context.Items.AnyAsync(x=>x.Name == itemname))
+                return true;
+            return false;
+        }
 
         public async Task<bool> SaveAll()
         {

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using StorageApp.API.Data;
 using StorageApp.API.Dtos;
+using StorageApp.API.Models;
 
 namespace StorageApp.API.Controllers
 {
@@ -51,12 +52,43 @@ namespace StorageApp.API.Controllers
             if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
+
+
+            var userFromRepo = await _repo.GetUser(itemid);
+
+            _mapper.Map(itemForUpdateDto, userFromRepo);
+
             if (await _repo.SaveAll())
                 return NoContent();
             
             throw new Exception($"Nem jó az azlábbi {id}");
         }
 
+        [HttpPost("{userid}")]
+        public async Task<IActionResult> CreateItem(int userid, ItemForCreateDto itemForCreateDto)
+        {
+            if (userid != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+
+             
+            var userFromRepo = await _repo.GetUser(userid); //userem
+            
+            itemForCreateDto.LastModifier = userFromRepo;
+            itemForCreateDto.Name=itemForCreateDto.Name.ToLower();
+
+            if (await _repo.ItemExists(itemForCreateDto.Name))
+                return BadRequest("Item already exists");
+        
+            var itemToCreate = _mapper.Map<Item>(itemForCreateDto);
+
+            _repo.Add(itemToCreate);
+
+            if ( await _repo.SaveAll())
+                return StatusCode(201);
+
+            throw new Exception("Nem sikerült a hozzáadás");
+        }
         
     }
 }

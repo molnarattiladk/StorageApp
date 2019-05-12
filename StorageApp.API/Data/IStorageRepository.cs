@@ -19,5 +19,8 @@ namespace StorageApp.API.Data
         Task<User> GetUser(int id);
 
         Task<bool> UserExists(string username);
+
+        
+        Task<bool> ItemExists(string username);
     }
 }
