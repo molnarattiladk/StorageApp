@@ -14,6 +14,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ItemListResolver } from './_resolver/item-list.resolver';
 import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
 import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
+import { ItemCreateComponent } from './Item/item-create/item-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
     children: [
       {path: 'items', component: ItemsComponent, resolve: {item: ItemListResolver}},
       {path: 'items/:id', component: ItemDetailedComponent, resolve: {item: ItemDetailedResolver}},
+      {path: 'item/create', component: ItemCreateComponent},
       {path: 'employees', component: EmployeesComponent, resolve: {users: EmployeeListResolver}},
       {path: 'employees/:id', component: EmployeeDetailedComponent, resolve: {user: EmployeeDetailResolver}},
       {path: 'employee/edit/:id', component: EmployeeEditComponent, resolve: {user: EmployeeEditResolver},

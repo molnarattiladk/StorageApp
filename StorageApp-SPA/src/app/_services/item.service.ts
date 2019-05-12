@@ -21,4 +21,10 @@ getItem(id): Observable<Item> {
   return this.http.get<Item>(this.baseUrl + 'item/' + id);
 }
 
+// ide még egy update kell
+
+createItem(userid: number, item: Item) {
+  return this.http.post(this.baseUrl + 'item/' + userid, item);
+}
+
 }

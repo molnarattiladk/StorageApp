@@ -28,6 +28,7 @@ import { ItemDetailedResolver } from './_resolver/item-detail.resolver';
 import { ItemListResolver } from './_resolver/item-list.resolver';
 import { ItemEditResolver } from './_resolver/item-edit.resolver';
 import { EmployeeAddComponent } from './Employee/employee-add/employee-add.component';
+import { ItemCreateComponent } from './Item/item-create/item-create.component';
 
 
 
@@ -47,7 +48,8 @@ export function tokenGetter() {
       EmployeeDetailedComponent,
       ItemDetailedComponent,
       EmployeeEditComponent,
-      EmployeeAddComponent
+      EmployeeAddComponent,
+      ItemCreateComponent
    ],
    imports: [
       BrowserModule,
