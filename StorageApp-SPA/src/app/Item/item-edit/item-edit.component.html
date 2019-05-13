@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+        <h1>Szerkeszt {{item.name}}</h1>
+    </div>
+   <div class="col-sm-8">
+     <div *ngIf="editForm.dirty" class="alert alert-info">
+       <strong>Information: </strong>You have made changes. Any unsaved changes will be lost
+     </div>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <strong>Név </strong>
+            <p>{{item.name}}</p>
+          </div>
+          <div>
+            <strong>Leírás </strong>
+            <p>{{item.description}}</p>
+          </div>
+          <div>
+            <strong>Darabszám </strong>
+            <p>{{item.count}}</p>
+          </div>
+          <div>
+            <strong>Bruttó Összeg </strong>
+            <p>{{item.grossPrice}}</p>
+          </div>
+          <div>
+            <strong>Nettó Összeg </strong>
+            <p>{{item.netPrice}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+        </div>
+      </div>
+    </div>
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="updateItem()">
+      <h4>Név</h4>
+      <input type="text" name="name" class="form-control" [(ngModel)]="item.name">
+      <h4>Leírás </h4>
+      <input type="text" name="description" class="form-control" [(ngModel)]="item.description">
+      <h4>Darabszám</h4>
+      <input type="number" name="count" class="form-control" [(ngModel)]="item.count">
+      <h4></h4>
+      <h4>Bruttóösszeg</h4>
+      <input type="number" name="grossPrice" class="form-control" [(ngModel)]="item.grossPrice">
+      <h4>Nettó összeg</h4>
+      <input type="number" name="netPrice" class="form-control" [(ngModel)]="item.netPrice">
+</form>
+      </div>
+  </div>

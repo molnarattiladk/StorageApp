@@ -23,6 +23,7 @@
             <td>{{item.lastModify}}</td>
             <td>{{item.lastModifier}}</td>
             <td><button class="btn btn-primary" [routerLink]="['/items/', item.id]"><i class="fa fa-info"></i></button></td>
+            <td><button class="btn btn-primary" [routerLink]="['/items/edit', item.id]"><i class="fa fa-edit"></i></button></td>
           </tr>
         </tbody>
       </table>

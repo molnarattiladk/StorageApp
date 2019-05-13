@@ -22,6 +22,9 @@ getItem(id): Observable<Item> {
 }
 
 // ide még egy update kell
+updateItem(id: number, itemid: number, item: Item) {
+  return this.http.put(this.baseUrl + 'item/' + id + '/' + itemid, item);
+}
 
 createItem(userid: number, item: Item) {
   return this.http.post(this.baseUrl + 'item/' + userid, item);

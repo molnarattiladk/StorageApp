@@ -54,9 +54,10 @@ namespace StorageApp.API.Controllers
 
 
 
-            var userFromRepo = await _repo.GetUser(itemid);
-
-            _mapper.Map(itemForUpdateDto, userFromRepo);
+            var itemFromRepo = await _repo.GetItem(itemid);
+            var userFromRepo = await _repo.GetUser(id);
+            itemFromRepo.LastModifier=userFromRepo;
+            _mapper.Map(itemForUpdateDto, itemFromRepo);
 
             if (await _repo.SaveAll())
                 return NoContent();
