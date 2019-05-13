@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using StorageApp.API.Data;
 using StorageApp.API.Dtos;
+using StorageApp.API.Helpers;
 using StorageApp.API.Models;
 
 namespace StorageApp.API.Controllers
@@ -28,10 +29,13 @@ namespace StorageApp.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetItems()
+        public async Task<IActionResult> GetItems([FromQuery]ItemParams itemParams)
         {
-            var items = await _repo.GetItems();
+            var items = await _repo.GetItems(itemParams);       //[FromQuery]ItemParams itemParams
             var itemsToReturn = _mapper.Map<IEnumerable<ItemForListDto>>(items);
+
+            Response.AddPagination(items.CurrentPage, items.PageSize, items.TotalCount, items.TotalPages);
+
             return Ok(itemsToReturn);
         }
 

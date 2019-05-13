@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using StorageApp.API.Helpers;
 using StorageApp.API.Models;
 
 namespace StorageApp.API.Data
@@ -31,10 +32,10 @@ namespace StorageApp.API.Data
             return item;
         }
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<PagedList<Item>> GetItems(ItemParams itemParams)
         {
-            var items = await _context.Items.ToListAsync();
-            return items;
+            var items =  _context.Items;
+            return await PagedList<Item>.CreateAsync(items, itemParams.PageNumber, itemParams.PageSize);
         }
 
         // for users

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using StorageApp.API.Helpers;
 using StorageApp.API.Models;
 
 namespace StorageApp.API.Data
@@ -12,7 +13,7 @@ namespace StorageApp.API.Data
         void Add<T>(T entity) where T: class;
         void Deleted<T>(T entity) where T: class;
         Task<bool> SaveAll();
-        Task<IEnumerable<Item>> GetItems();
+        Task<PagedList<Item>> GetItems(ItemParams itemParams);
         Task<Item> GetItem(int id);
 
         Task<IEnumerable<User>> GetUsers();
