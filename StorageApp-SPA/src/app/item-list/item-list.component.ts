@@ -13,14 +13,14 @@ export class ItemListComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.loadItems();
+    // this.loadItems();
   }
 
-  loadItems() {
-    this.itemService.getItems().subscribe((items: Item[]) => {
-      this.items = items;
-    }, error => {
-      console.log(error); // jó ez így még nem okés, kelleni fog az alertify
-    });
-  }
+  // loadItems() {
+  //   this.itemService.getItems().subscribe((items: Item[]) => {
+  //     this.items = items;
+  //   }, error => {
+  //     console.log(error); // jó ez így még nem okés, kelleni fog az alertify
+  //   });
+  // }
 }

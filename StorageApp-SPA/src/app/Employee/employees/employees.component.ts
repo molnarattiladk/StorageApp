@@ -18,6 +18,7 @@ export class EmployeesComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.users = data.users;
     });
+    console.log(this.users);
   }
 
   // loadUsers() {

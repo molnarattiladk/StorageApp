@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from '../_models/item';
+import { PaginatedResult } from '../_models/pagination';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -13,8 +15,26 @@ export class ItemService {
 
 constructor(private http: HttpClient) { }
 
-getItems(): Observable<Item[]> {
-  return this.http.get<Item[]>(this.baseUrl + 'item');
+getItems(page?, itemsPerPage?): Observable<PaginatedResult<Item[]>> {
+  const paginetedResult: PaginatedResult<Item[]> = new PaginatedResult<Item[]>();
+
+  let params = new HttpParams();
+
+  if (page != null && itemsPerPage != null) {
+    params = params.append('pageNumber', page);
+    params = params.append('pageSize', itemsPerPage);
+  }
+
+  return this.http.get<Item[]>(this.baseUrl + 'item', {observe: 'response', params})
+  .pipe(
+    map(response => {
+      paginetedResult.result = response.body;
+      if (response.headers.get('Pagination') != null) {
+        paginetedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+      }
+      return paginetedResult;
+    })
+  );
 }
 
 getItem(id): Observable<Item> {

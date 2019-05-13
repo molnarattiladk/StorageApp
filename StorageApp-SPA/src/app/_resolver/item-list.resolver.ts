@@ -7,11 +7,13 @@ import { ItemService } from '../_services/item.service';
 
 @Injectable()
 export class ItemListResolver implements Resolve<Item[]> {
+    pageNumber = 1;
+    pageSize = 5;
 
     constructor(private itemService: ItemService, private route: Router) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Item[]> {
-        return this.itemService.getItems().pipe(
+        return this.itemService.getItems(this.pageNumber, this.pageSize).pipe(
             catchError(error => {
                 this.route.navigate(['/home']);
                 return of(null);
