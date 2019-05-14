@@ -13,10 +13,12 @@ export class ItemsComponent implements OnInit {
 
   items: Item[];
   pagination: Pagination;
+  itemParams: any = {};
 
   constructor(private itemService: ItemService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.itemParams.orderBy = 'name';
     this.loadItems();
       // this.route.data.subscribe(data => {
       //   // tslint:disable-next-line:no-string-literal
@@ -29,7 +31,7 @@ export class ItemsComponent implements OnInit {
   }
 
    loadItems() {
-     this.itemService.getItems(1, 5)
+     this.itemService.getItems(1, 5, this.itemParams)
      .subscribe((res: PaginatedResult<Item[]>) => {
        this.items = res.result;
        this.pagination = res.pagination;
@@ -41,7 +43,7 @@ export class ItemsComponent implements OnInit {
    }
 
    loadPage() {
-    this.itemService.getItems(this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.itemService.getItems(this.pagination.currentPage, this.pagination.itemsPerPage, this.itemParams)
     .subscribe((res: PaginatedResult<Item[]>) => {
       this.items = res.result;
       this.pagination = res.pagination;

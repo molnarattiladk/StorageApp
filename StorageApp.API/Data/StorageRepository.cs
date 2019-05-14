@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using StorageApp.API.Helpers;
@@ -34,7 +35,22 @@ namespace StorageApp.API.Data
 
         public async Task<PagedList<Item>> GetItems(ItemParams itemParams)
         {
-            var items =  _context.Items;
+            var items =  _context.Items.AsQueryable();
+
+            //rendezősdi
+            if (!string.IsNullOrEmpty(itemParams.OrderBy))
+            {
+                switch (itemParams.OrderBy)
+                {
+                    case "lastModify":
+                        items = items.OrderByDescending(u => u.LastModify);
+                        break;
+                    default:
+                        items = items.OrderByDescending(u => u.Name);
+                        break;
+                }
+            }
+
             return await PagedList<Item>.CreateAsync(items, itemParams.PageNumber, itemParams.PageSize);
         }
 

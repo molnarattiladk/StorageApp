@@ -12,5 +12,10 @@ namespace StorageApp.API.Helpers
             get  { return pageSize; }
             set  {pageSize = (value > MaxPageSize) ? MaxPageSize : value ;}
         }
+
+        //későbbre, hogy lehessen userID alapján keresni
+        public int UserId { get; set; }
+
+        public string OrderBy { get; set; }
     }
 }

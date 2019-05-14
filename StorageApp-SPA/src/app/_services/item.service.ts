@@ -15,7 +15,7 @@ export class ItemService {
 
 constructor(private http: HttpClient) { }
 
-getItems(page?, itemsPerPage?): Observable<PaginatedResult<Item[]>> {
+getItems(page?, itemsPerPage?, itemParams? ): Observable<PaginatedResult<Item[]>> {
   const paginetedResult: PaginatedResult<Item[]> = new PaginatedResult<Item[]>();
 
   let params = new HttpParams();
@@ -23,6 +23,10 @@ getItems(page?, itemsPerPage?): Observable<PaginatedResult<Item[]>> {
   if (page != null && itemsPerPage != null) {
     params = params.append('pageNumber', page);
     params = params.append('pageSize', itemsPerPage);
+  }
+
+  if (itemParams != null) {
+    params = params.append('orderBy', itemParams);
   }
 
   return this.http.get<Item[]>(this.baseUrl + 'item', {observe: 'response', params})
