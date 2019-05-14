@@ -17,6 +17,7 @@ import { EmployeeAddComponent } from './Employee/employee-add/employee-add.compo
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemEditResolver } from './_resolver/item-edit.resolver';
 import { ItemEditComponent } from './Item/item-edit/item-edit.component';
+import { ContactComponent } from './Contact/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
       {path: 'employees/:id', component: EmployeeDetailedComponent, resolve: {user: EmployeeDetailResolver}},
       {path: 'employee/edit/:id', component: EmployeeEditComponent, resolve: {user: EmployeeEditResolver},
        canDeactivate: [PreventUnsavedChanges]},
-       {path: 'employee/add', component: EmployeeAddComponent}
+      {path: 'employee/add', component: EmployeeAddComponent},
+      {path: 'contact', component: ContactComponent}
     ]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full'},

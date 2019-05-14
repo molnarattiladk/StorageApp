@@ -1,41 +1,39 @@
-
- <h1>{{user?.username}}</h1>
-<form [formGroup]="createForm" (ngSubmit)="create()">
- 
-
-
-  <div class="form-group">
-    <input [ngClass]="{'is-invalid': createForm.get('name').errors && createForm.get('name').touched}" type="text" class="form-control" formControlName="name" placeholder="Cikk neve">
-    <div class="invalid-feedback">Please choose a username</div>
-  </div>
+<div class="d-flex justify-content-center">
+  <h1>{{user?.username}}</h1>
+  <form [formGroup]="createForm" (ngSubmit)="create()">
+  
 
 
-  <div class="form-group">
-    <input [ngClass]="{'is-invalid': createForm.get('description').errors && createForm.get('description').touched}" class="form-control" placeholder="Leírás" formControlName="description">
-      <div class="invalid-feedback" *ngIf="createForm.get('description').touched && createForm.get('description').hasError('required')">Known as is required</div>
-  </div>
-
- 
-  <div class="form-group"> 
-    <input [ngClass]="{'is-invalid': createForm.get('count').errors && createForm.get('count').touched}" type="number" class="form-control" placeholder="darabszám" formControlName="count">
-   <div class="invalid-feedback" *ngIf="createForm.get('count').touched && createForm.get('count').hasError('required')">City is required</div>
-   </div>
-   <div class="form-group">
-    <input [ngClass]="{'is-invalid': createForm.get('grossPrice').errors && createForm.get('grossPrice').touched}" type="number" class="form-control" placeholder="grossprice" formControlName="grossPrice">
-   <div class="invalid-feedback" *ngIf="createForm.get('grossPrice').touched && createForm.get('grossPrice').hasError('required')">Country is required</div>
-   </div>
-   <div class="form-group">
-    <input [ngClass]="{'is-invalid': createForm.get('netPrice').errors && createForm.get('netPrice').touched}" type="number" class="form-control" placeholder="netprice" formControlName="netPrice">
-   <div class="invalid-feedback" *ngIf="createForm.get('netPrice').touched && createForm.get('netPrice').hasError('required')">Country is required</div>
-  </div>
+    <div class="form-group">
+      <input [ngClass]="{'is-invalid': createForm.get('name').errors && createForm.get('name').touched}" type="text" class="form-control" formControlName="name" placeholder="Cikk neve">
+      <div class="invalid-feedback">Please choose a itemname</div>
+    </div>
 
 
-  <div class="form-group text-center">
-    <button class="btn btn-success mr-2" [disabled]="!createForm.valid" type="submit">Hozzáad</button>
-    <button class="btn btn-default" type="button"(click)="cancel()">Mégsem</button>
-  </div>
+    <div class="form-group">
+      <input [ngClass]="{'is-invalid': createForm.get('description').errors && createForm.get('description').touched}" class="form-control" placeholder="Leírás" formControlName="description">
+        <div class="invalid-feedback" *ngIf="createForm.get('description').touched && createForm.get('description').hasError('required')">Description as is required</div>
+    </div>
 
-</form>
+  
+    <div class="form-group"> 
+      <input [ngClass]="{'is-invalid': createForm.get('count').errors && createForm.get('count').touched}" type="number" class="form-control" placeholder="darabszám" formControlName="count">
+    <div class="invalid-feedback" *ngIf="createForm.get('count').touched && createForm.get('count').hasError('required')">Count is required</div>
+    </div>
+    <div class="form-group">
+      <input [ngClass]="{'is-invalid': createForm.get('grossPrice').errors && createForm.get('grossPrice').touched}" type="number" class="form-control" placeholder="grossprice" formControlName="grossPrice">
+    <div class="invalid-feedback" *ngIf="createForm.get('grossPrice').touched && createForm.get('grossPrice').hasError('required')">GrossPrice is required</div>
+    </div>
+    <div class="form-group">
+      <input [ngClass]="{'is-invalid': createForm.get('netPrice').errors && createForm.get('netPrice').touched}" type="number" class="form-control" placeholder="netprice" formControlName="netPrice">
+    <div class="invalid-feedback" *ngIf="createForm.get('netPrice').touched && createForm.get('netPrice').hasError('required')">NetPrice is required</div>
+    </div>
 
-<p>Form value: {{createForm.value | json}}</p>
-<p>Form status: {{createForm.status | json}}</p> 
+
+    <div class="form-group text-center">
+      <button class="btn btn-success mr-2" [disabled]="!createForm.valid" type="submit">Hozzáad</button>
+      <button class="btn btn-default" type="button"(click)="cancel()">Mégsem</button>
+    </div>
+
+  </form>
+</div>
