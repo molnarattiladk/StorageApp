@@ -54,4 +54,8 @@ createItem(userid: number, item: Item) {
   return this.http.post(this.baseUrl + 'item/' + userid, item);
 }
 
+deleteItem(id: number, itemid: number) {
+  return this.http.delete(this.baseUrl + 'item/' + id + '/' + itemid);
+}
+
 }

@@ -1,10 +1,12 @@
 
   <div class="d-flex justify-content-center">
     <button class="btn btn-primary" [routerLink]="['/item/create']">Felvétel</button>
+    <!--
     <button type="button" name="orderBy" class="btn btn-primary" 
     [(ngModel)]="itemParams.orderBy" (click)="loadItems()" btnRadio="lastModify">Utolsó Módosító</button>
     <button type="button" name="orderBy" class="btn btn-primary" 
     [(ngModel)]="itemParams.orderBy" (click)="loadItems()" btnRadio="name">Név</button>
+    -->
   </div>
 
 
@@ -23,6 +25,7 @@
             <th>Módosító</th>
             <th>Részletek</th>
             <th>Szerkesztés</th>
+            <th>Törlés</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +38,7 @@
             <td>{{item.lastModifier}}</td>
             <td><button class="btn btn-primary" [routerLink]="['/items/', item.id]"><i class="fa fa-info"></i></button></td>
             <td><button class="btn btn-primary" [routerLink]="['/items/edit', item.id]"><i class="fa fa-edit"></i></button></td>
+            <td><button class="btn btn-primary" (click)="delete(item.id)"><i class="fa fa-trash"></i></button></td>
           </tr>
         </tbody>
       </table>

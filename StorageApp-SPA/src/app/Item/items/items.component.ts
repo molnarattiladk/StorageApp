@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Item } from '../../_models/item';
 import { ItemService } from '../../_services/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { PaginatedResult, Pagination } from '../../_models/pagination';
+import { AuthService } from 'src/app/_services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -14,8 +16,16 @@ export class ItemsComponent implements OnInit {
   items: Item[];
   pagination: Pagination;
   itemParams: any = {};
+  // ez  nem is kell.
+  @ViewChild('editForm') editForm: NgForm;
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute) { }
+  constructor(private itemService: ItemService, private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
     this.itemParams.orderBy = 'name';
@@ -57,6 +67,15 @@ export class ItemsComponent implements OnInit {
    pageChanged(event: any): void {
      this.pagination.currentPage = event.page;
      this.loadPage();
+   }
+
+   delete(id: number) {
+     this.itemService.deleteItem(this.authService.decodedToken.nameid, id).subscribe(next => {
+       console.log('törlésre kerül: ', id);
+       this.loadItems();
+     }, error => {
+       console.log(error);
+     });
    }
 
 }
