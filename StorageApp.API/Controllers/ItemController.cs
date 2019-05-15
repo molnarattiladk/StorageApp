@@ -94,6 +94,25 @@ namespace StorageApp.API.Controllers
 
             throw new Exception("Nem sikerült a hozzáadás");
         }
+
+
+        [HttpDelete("{id}/{itemid}")]
+        public async Task<IActionResult> DeleteItem(int id, int itemid)
+        {
+            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+            
+            var itemFromRepo = await _repo.GetItem(itemid);
+
+            if (itemFromRepo == null)
+                return BadRequest("Item not exists");
+
+            _repo.Deleted(itemFromRepo);
+            if ( await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception("Nem sikerült a törlés");
+        }
         
     }
 }
