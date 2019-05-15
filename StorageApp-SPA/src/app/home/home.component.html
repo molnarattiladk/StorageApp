@@ -1,13 +1,24 @@
 <div class="container mt-5">
-    <div class="container">
-      <div *ngIf="!loggedInMode" class="d-flex justify-content-center">
+    <div *ngIf="!loggedInMode && !registerMode" class="container">
+      <div  class="d-flex justify-content-center">
         <div class="col-mt-2">
-
         </div>    
             <div class="col-mt-8">
               <app-login></app-login>
+              <div class="d-flex justify-content-center">
+              <button class="btn btn-primary" (click)="registerToggle()">Regisztráció</button>
+              </div>
             </div>
             <div class="col-mt-2">
+            </div>
+      </div>
+    </div>
+
+    <div *ngIf="registerMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <!--valuesfromhome aza az input, cancelregister meg a az outputos [valuesFromHome]="values"-->
+          <app-register  (cancelRegister)="cancelRegisterMode($event)"></app-register>
         </div>
       </div>
     </div>

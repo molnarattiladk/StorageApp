@@ -18,6 +18,7 @@ import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemEditResolver } from './_resolver/item-edit.resolver';
 import { ItemEditComponent } from './Item/item-edit/item-edit.component';
 import { ContactComponent } from './Contact/contact/contact.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

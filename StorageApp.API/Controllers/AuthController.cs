@@ -33,7 +33,8 @@ namespace StorageApp.API.Controllers
 
             var userToCreate = new User
             {
-                UserName = userForRegisterDto.UserName
+                UserName = userForRegisterDto.UserName,
+                Contact = userForRegisterDto.Contact
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);

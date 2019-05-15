@@ -32,6 +32,7 @@ import { EmployeeAddComponent } from './Employee/employee-add/employee-add.compo
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemEditComponent } from './Item/item-edit/item-edit.component';
 import { ContactComponent } from './Contact/contact/contact.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -54,7 +55,8 @@ export function tokenGetter() {
       EmployeeAddComponent,
       ItemCreateComponent,
       ItemEditComponent,
-      ContactComponent
+      ContactComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,
@@ -69,7 +71,7 @@ export function tokenGetter() {
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
-      })
+})
    ],
    providers: [
       AuthService,
