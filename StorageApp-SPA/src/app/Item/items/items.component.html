@@ -22,7 +22,6 @@
             <th>Darab</th>
             <th>Ár</th>
             <th>Módosítás</th>
-            <th>Módosító</th>
             <th>Részletek</th>
             <th>Szerkesztés</th>
             <th>Törlés</th>
@@ -34,8 +33,7 @@
             <td>{{item.name}}</td>
             <td>{{item.count}}</td>
             <td>{{item.netPrice}}</td>
-            <td>{{item.lastModify | date: 'mediumDate'}}</td>
-            <td>{{item.lastModifier}}</td>
+            <td>{{item.lastModify | date: 'mediumDate'}}</td>  
             <td><button class="btn btn-primary" [routerLink]="['/items/', item.id]"><i class="fa fa-info"></i></button></td>
             <td><button class="btn btn-primary" [routerLink]="['/items/edit', item.id]"><i class="fa fa-edit"></i></button></td>
             <td><button class="btn btn-primary" (click)="delete(item.id)"><i class="fa fa-trash"></i></button></td>
