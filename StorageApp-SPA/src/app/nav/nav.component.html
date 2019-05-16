@@ -1,5 +1,6 @@
 <nav *ngIf="loggedIn()"  class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Storage App</a>
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/items']">Storage App</a>
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -16,6 +17,11 @@
       </li>
     </ul>
 
+    <div>
+      <a class="text-light">
+        Hello {{authService.decodedToken?.unique_name | titlecase}}
+      </a>
+    </div>
     <!--drobdown menu elemet alakítottuk át ilyenné-->
     <!--
     <div *ngIf="loggedInMode" class="dropdown">
@@ -29,4 +35,5 @@
         <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
       </div>
     </div>-->
+  </div>
 </nav>

@@ -1,27 +1,27 @@
 <div class="container mt-4">
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     <h1>{{item?.name}}</h1>
   </div>
-  <div class="row">
-    <div>
+  <div class="row d-flex justify-content-center">
+    <div class="item-prop">
       <strong>Leírás</strong>
       <p>{{item?.description}}</p>
     </div>
-    <div>
+    <div class="item-prop">
       <strong>Darabszám</strong>
       <p>{{item?.count}}</p>
     </div>
-    <div>
+    <div class="item-prop">
       <strong>Bruttó érték</strong>
-      <p>{{item?.grossprice}}</p>
+      <p>{{item?.grossPrice}}</p>
     </div>
-    <div>
+    <div class="item-prop">
       <strong>Nettó érték</strong>
       <p>{{item?.netPrice}}</p>
     </div>
-    <div>
+    <div class="item-prop">
       <strong>Módosították</strong>
-      <p>{{item?.lastModify}}</p>
+      <p>{{item?.lastModify | date: 'mediumDate'}}</p>
     </div>
   </div>
 </div>

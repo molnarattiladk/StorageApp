@@ -1,35 +1,33 @@
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-sm-4">
-        <h1>Szerkeszt {{item.name}}</h1>
-    </div>
+  <div class="row d-flex justify-content-center">
+   
    <div class="col-sm-8">
      <div *ngIf="editForm.dirty" class="alert alert-info">
        <strong>Information: </strong>You have made changes. Any unsaved changes will be lost
      </div>
    </div>
   </div>
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <div>
+          <div class="item-prop">
             <strong>Név </strong>
             <p>{{item.name}}</p>
           </div>
-          <div>
+          <div class="item-prop">
             <strong>Leírás </strong>
             <p>{{item.description}}</p>
           </div>
-          <div>
+          <div class="item-prop">
             <strong>Darabszám </strong>
             <p>{{item.count}}</p>
           </div>
-          <div>
+          <div class="item-prop">
             <strong>Bruttó Összeg </strong>
             <p>{{item.grossPrice}}</p>
           </div>
-          <div>
+          <div class="item-prop">
             <strong>Nettó Összeg </strong>
             <p>{{item.netPrice}}</p>
           </div>
