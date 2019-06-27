@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { Item } from 'src/app/_models/item';
 import { NgForm, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ItemService } from 'src/app/_services/item.service';
 import { User } from 'src/app/_models/user';
 import { AuthService } from 'src/app/_services/auth.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-item-create',
@@ -13,14 +14,16 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class ItemCreateComponent implements OnInit {
 
-  @Output() cancelCreate = new EventEmitter();
+  // @Output() cancelCreate = new EventEmitter();
+  public event: EventEmitter<any> = new EventEmitter();
 
   model: any = {};
   item: Item;
   createForm: FormGroup;
   @Input() user: User;
   constructor(private authService: AuthService, private itemService: ItemService,
-              private fb: FormBuilder, private route: Router, private router: ActivatedRoute) { }
+              private fb: FormBuilder, private route: Router, private router: ActivatedRoute,
+              public dialogRef: MatDialogRef<ItemCreateComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     this.createAddForm();
@@ -47,6 +50,7 @@ export class ItemCreateComponent implements OnInit {
       console.log(this.item);
       this.itemService.createItem(this.authService.decodedToken.nameid, this.item).subscribe(() => {
         console.log('Sikeres Felvétel');
+        this.dialogRef.close();
       }, error => {
         console.log(error);
       });
@@ -54,7 +58,8 @@ export class ItemCreateComponent implements OnInit {
   }
 
   cancel() {
-    this.cancelCreate.emit(false);
+    // this.cancelCreate.emit(false);
+    this.dialogRef.close();
 }
 
 }

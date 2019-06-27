@@ -1,6 +1,8 @@
 
   <div class="d-flex justify-content-center">
-    <button class="btn btn-primary" [routerLink]="['/item/create']">Felvétel</button>
+    <button class="btn btn-primary" mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon>add</mat-icon> Felvétel
+    </button>
     <!--
     <button type="button" name="orderBy" class="btn btn-primary" 
     [(ngModel)]="itemParams.orderBy" (click)="loadItems()" btnRadio="lastModify">Utolsó Módosító</button>

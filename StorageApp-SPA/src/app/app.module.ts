@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from 'ngx-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,15 +54,16 @@ export function tokenGetter() {
       EmployeesComponent,
       EmployeeDetailedComponent,
       ItemDetailedComponent,
+      ItemCreateComponent,
       EmployeeEditComponent,
       EmployeeAddComponent,
-      ItemCreateComponent,
       ItemEditComponent,
       ContactComponent,
       RegisterComponent
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
@@ -93,6 +95,9 @@ export function tokenGetter() {
    ],
    bootstrap: [
       AppComponent
+   ],
+   entryComponents: [
+      ItemCreateComponent
    ]
 })
 export class AppModule { }

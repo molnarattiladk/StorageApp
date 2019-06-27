@@ -1,21 +1,18 @@
+<!--
 <div class="d-flex justify-content-center">
   <h1>{{user?.username}}</h1>
   <form [formGroup]="createForm" (ngSubmit)="create()">
   
-
-
     <div class="form-group">
       <input [ngClass]="{'is-invalid': createForm.get('name').errors && createForm.get('name').touched}" type="text" class="form-control" formControlName="name" placeholder="Cikk neve">
       <div class="invalid-feedback">Please choose a itemname</div>
     </div>
-
 
     <div class="form-group">
       <input [ngClass]="{'is-invalid': createForm.get('description').errors && createForm.get('description').touched}" class="form-control" placeholder="Leírás" formControlName="description">
         <div class="invalid-feedback" *ngIf="createForm.get('description').touched && createForm.get('description').hasError('required')">Description as is required</div>
     </div>
 
-  
     <div class="form-group"> 
       <input [ngClass]="{'is-invalid': createForm.get('count').errors && createForm.get('count').touched}" type="number" class="form-control" placeholder="darabszám" formControlName="count">
     <div class="invalid-feedback" *ngIf="createForm.get('count').touched && createForm.get('count').hasError('required')">Count is required</div>
@@ -29,10 +26,45 @@
     <div class="invalid-feedback" *ngIf="createForm.get('netPrice').touched && createForm.get('netPrice').hasError('required')">NetPrice is required</div>
     </div>
 
-
     <div class="form-group text-center">
       <button class="btn btn-success mr-2" [disabled]="!createForm.valid" type="submit">Hozzáad</button>
       <button class="btn btn-default" type="button"(click)="cancel()">Mégsem</button>
+    </div>
+
+  </form>
+</div>
+-->
+<div mat-dialog-content class="d-flex justify-content-center">
+  <h1>{{user?.username}}</h1>
+  <form class="example-form" [formGroup]="createForm" (ngSubmit)="create()">
+  
+    <mat-form-field>
+      <input matInput [ngClass]="{'is-invalid': createForm.get('name').errors && createForm.get('name').touched}" type="text" class="form-control" formControlName="name" placeholder="Cikk neve">
+    </mat-form-field>  
+
+    <mat-form-field>
+      <input matInput [ngClass]="{'is-invalid': createForm.get('description').errors && createForm.get('description').touched}" class="form-control" placeholder="Leírás" formControlName="description">
+      <mat-error *ngIf="createForm.get('description').touched && createForm.get('description').hasError('required')">Description as is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [ngClass]="{'is-invalid': createForm.get('count').errors && createForm.get('count').touched}" type="number" class="form-control" placeholder="darabszám" formControlName="count">
+      <mat-error *ngIf="createForm.get('count').touched && createForm.get('count').hasError('required')">Count is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [ngClass]="{'is-invalid': createForm.get('grossPrice').errors && createForm.get('grossPrice').touched}" type="number" class="form-control" placeholder="grossprice" formControlName="grossPrice">
+      <mat-error *ngIf="createForm.get('grossPrice').touched && createForm.get('grossPrice').hasError('required')">GrossPrice is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [ngClass]="{'is-invalid': createForm.get('netPrice').errors && createForm.get('netPrice').touched}" type="number" class="form-control" placeholder="netprice" formControlName="netPrice">
+      <mat-error *ngIf="createForm.get('netPrice').touched && createForm.get('netPrice').hasError('required')">NetPrice is required</mat-error>
+    </mat-form-field>  
+
+    <div mat-dialog-actions class="form-group text-center">
+      <button mat-raised-button class="btn btn-success mr-2" [disabled]="!createForm.valid" type="submit">Hozzáad</button>
+      <button mat-raised-button class="btn btn-default" type="button"(click)="cancel()">Mégsem</button>
     </div>
 
   </form>

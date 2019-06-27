@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PaginatedResult, Pagination } from '../../_models/pagination';
 import { AuthService } from 'src/app/_services/auth.service';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { ItemCreateComponent } from '../item-create/item-create.component';
 
 @Component({
   selector: 'app-items',
@@ -25,7 +27,8 @@ export class ItemsComponent implements OnInit {
     }
   }
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private itemService: ItemService, private route: ActivatedRoute, private authService: AuthService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.itemParams.orderBy = 'name';
@@ -75,6 +78,13 @@ export class ItemsComponent implements OnInit {
        this.loadItems();
      }, error => {
        console.log(error);
+     });
+   }
+
+   openDialog(): void {
+     const dialogRef = this.dialog.open(ItemCreateComponent, {
+       width: '700px',
+       data: 'Felvétel'
      });
    }
 
