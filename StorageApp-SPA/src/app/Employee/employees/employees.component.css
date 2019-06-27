@@ -6,8 +6,26 @@ button {
     margin: 5px 5px
 }
 
-.table {
-    padding: 0 25px;
+.card {
+    min-width: 80%;
+  }
+  
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 100%;
+  }
+  
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+    /*padding: 0 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+    text-align: center;*/
 }
+
+a {
+    cursor: pointer;
+  }

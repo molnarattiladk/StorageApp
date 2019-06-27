@@ -14,6 +14,8 @@ export class EmployeesComponent implements OnInit {
 
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
+  displayedColumns = ['Id', 'name', 'detail', 'edit'];
+
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.users = data.users;

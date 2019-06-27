@@ -3,11 +3,11 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-
-body {
+/*body {
     background: url('./assets/img/trianglify.png') no-repeat;
     background-position: center; 
     height: 100vh;
     background-size: cover; 
-}
+}*/

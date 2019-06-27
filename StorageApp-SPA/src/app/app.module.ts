@@ -33,6 +33,8 @@ import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemEditComponent } from './Item/item-edit/item-edit.component';
 import { ContactComponent } from './Contact/contact/contact.component';
 import { RegisterComponent } from './register/register.component';
+import { MaterialModule } from './material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -65,6 +67,8 @@ export function tokenGetter() {
       FormsModule,
       PaginationModule.forRoot(),
       ReactiveFormsModule,
+      MaterialModule,
+      FlexLayoutModule,
       JwtModule.forRoot({
          config: {
             tokenGetter,
