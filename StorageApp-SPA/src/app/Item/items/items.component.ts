@@ -18,6 +18,9 @@ export class ItemsComponent implements OnInit {
   items: Item[];
   pagination: Pagination;
   itemParams: any = {};
+
+  displayedColumns = ['id', 'name', 'count', 'price', 'detail', 'edit'];
+
   // ez  nem is kell.
   @ViewChild('editForm') editForm: NgForm;
   @HostListener('window:beforeunload', ['$event'])
@@ -30,8 +33,9 @@ export class ItemsComponent implements OnInit {
   constructor(private itemService: ItemService, private route: ActivatedRoute, private authService: AuthService,
               public dialog: MatDialog) { }
 
+
   ngOnInit() {
-    this.itemParams.orderBy = 'name';
+    // this.itemParams.orderBy = 'name';
     this.loadItems();
       // this.route.data.subscribe(data => {
       //   // tslint:disable-next-line:no-string-literal
